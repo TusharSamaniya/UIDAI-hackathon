@@ -96,3 +96,21 @@ plt.show()
 population["coverage_level"].value_counts().plot(kind="bar")
 plt.title("Coverage Level Distribution")
 plt.show()
+
+#Demographic analysis -- age wise
+age_state = (
+    df.groupby("state")[["pct_age_0_5", "pct_age_5_17", "pct_age_18_plus"]]
+    .mean()
+)
+age_state.plot(kind = "bar", stacked = True)
+plt.title("Age Composition by State")
+plt.show()
+
+#age trends over time
+age_time = df.groupby("year")[
+    ["age_0_5", "age_5_17", "age_18_greater"]
+].sum()
+
+age_time.plot(kind = "area", stacked = True)
+plt.title("Age-wise Enrolment Trend Over Time")
+plt.show()
