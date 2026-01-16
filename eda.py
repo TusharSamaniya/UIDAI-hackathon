@@ -125,3 +125,25 @@ plt.show()
 
 #growth rate by pin category
 df.groupby("pin_category")["pct_age_18_plus"].mean()
+
+
+#growth, momentum and risk analysis
+#YOY growth Distribution
+sns.histplot(monthly["you_growth_rate"], bins = 30)
+plt.title("YoY Growth Rte Distribution")
+plt.show()
+
+#growth vs coverage 
+merged = monthly.merge(
+    population[["state", "district", "esi"]],
+    on=["state", "district"],
+    how="left"
+)
+
+sns.scatterplot(
+    data=merged,
+    x="esi",
+    y="yoy_growth_rate"
+)
+plt.title("Growth vs Coverage")
+plt.show()
