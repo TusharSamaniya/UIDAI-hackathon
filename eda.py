@@ -31,4 +31,39 @@ outliers = df[
 
 outliers.shape
 
+#temporal analysis
+yearly = df.groupby("year")["enrolment_count"].sum()
+plt.title("Year-wise Aadhar Enrolment Trend")
+plt.ylabel("Totla Enrolment")
+plt.xlabel("Year")
+plt.show()
+
+#monthly thrend
+monthly_trend = (
+    df.groupby(["year", "month"])["enrolment_count"]
+    .sum()
+    .reset_index()
+)
+sns.lineplot(
+    date=month_trend,
+    x = "month",
+    y = "enrolment_count",
+    hue = "year"
+)
+plt.title("Monthly enrolment plattern (Multi-year)")
+plt.show()
+
+#Quarter wise comparsion
+quarterly = df.groupby("quarter")["enrolment_count"].sum()
+
+quarterly.plot(lind = "bar")
+plt.title("Quarter-wise Enrolment Comparison")
+plt.show()
+
+#Financial year growth
+fy = df.groupby("financial_year")["enrolment_count"].sum()
+fy_growth = fy.pct_change() * 100
+
+fy_growth
+
 
