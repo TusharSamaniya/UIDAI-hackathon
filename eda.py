@@ -147,3 +147,16 @@ sns.scatterplot(
 )
 plt.title("Growth vs Coverage")
 plt.show()
+
+#policy bucket analysis
+monthly["policy_bucket"].value_count().plot(kind = "bar")
+plt.title("Policy Bucket Distribution")
+plt.show()
+
+sns.countplot(
+    data = monthly,
+    x = "policy_bucket",
+    hue = "State"
+)
+plt.title("State-wise Policy Risk Distribution")
+plt.show()
