@@ -160,3 +160,7 @@ sns.countplot(
 )
 plt.title("State-wise Policy Risk Distribution")
 plt.show()
+
+#outlier and anomaly detection
+monthly["anomaly"] = np.abs(monthly["monthly_growth_rate"]) > 50
+monthly[monthly["anomaly"]]
