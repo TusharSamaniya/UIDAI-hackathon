@@ -66,4 +66,33 @@ fy_growth = fy.pct_change() * 100
 
 fy_growth
 
+#geographic analysis
+#top 10 and bottom 10 states
+state_enrol = (
+    df.groupby("state")["enrolment_count"]
+    .sum()
+    .sort_values()
+)
+bottom_10 = state_enrol.head(10)
+top_10 = state_enrol.tail(10)
 
+top_10.plot(kind = "barh", title = "Top 10 states by Enrolment")
+plt.show()
+
+bottom_10.plot(kind = "barh", title = "Bottom 10 states by Enrolment")
+plt.show()
+
+sns.boxplot(
+    date = df,
+    x = "state",
+    y = "enrolment_count"
+)
+plt.xtickxlabel("State")
+plt.title("District Enrolment Spread within States")
+plt.xticks(rotation = 90)
+plt.show()
+
+#coverage level distribution
+population["coverage_level"].value_counts().plot(kind="bar")
+plt.title("Coverage Level Distribution")
+plt.show()
