@@ -114,3 +114,14 @@ age_time = df.groupby("year")[
 age_time.plot(kind = "area", stacked = True)
 plt.title("Age-wise Enrolment Trend Over Time")
 plt.show()
+
+#urban vs rural
+#enrolment by pin category
+pin_enrol = df.groupby("pin_category")["enrolment_count"].sum()
+
+pin_enrol.plot(kind = "bar")
+plt.title("Enrolment by PIN category")
+plt.show()
+
+#growth rate by pin category
+df.groupby("pin_category")["pct_age_18_plus"].mean()
