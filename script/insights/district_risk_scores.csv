@@ -1,0 +1,4 @@
+state,district,enrolment_count,age_0_5,age_5_17,age_18_greater,year,pin_category,pct_child,estimated_population,esi,low_coverage_score,yoy_growth_pct,growth_risk_score,child_gap_score,zero_months_count,infra_risk_score,risk_score,risk_level
+&,&,25,22,3,0,2025,RURAL,88.0,28.749999999999996,86.95652173913044,0.13043478260869568,0.0,1.0,0.0,0.0,0.0,0.352,Low Risk
+&,(),2,2,0,0,2025,RURAL,100.0,2.3,86.95652173913044,0.13043478260869568,0.0,1.0,0.0,0.0,0.0,0.352,Low Risk
+100000,100000,214,0,1,213,2025,RURAL,0.0,246.1,86.95652173913044,0.13043478260869568,0.0,1.0,1.0,0.0,0.0,0.552,Medium Risk

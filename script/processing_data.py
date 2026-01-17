@@ -12,8 +12,8 @@ df["state"] = df["state"].str.replace(r"[A-Z]", "", regex=True)
 df["district"] = df["district"].str.replace(r"[A-Z]", "", regex=True)
 
 #remove the extra space
-df["state"] = df["state"].str.replace(r"\s+", " ", regex= True).str.strip()
-df["district"] = df["district"].str.replace(r"\s+", " ", regex= True).str.strip()
+df["state"] = df["state"].str.strip().str.upper().str.replace(r"[^A-Z\s&-]", "", regex=True)
+df["district"] = df["district"].str.strip().str.upper().str.replace(r"[^A-Z\s&-]", "", regex=True)
 
 
 #update the year, month, quarter, week_number, financial_year
